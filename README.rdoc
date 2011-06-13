@@ -1,0 +1,33 @@
+Provides a class NonPersistend that you can extend to create your non persistent model, which you can use exactly like an activerecord model beside the fact that the record will not be stored in the db. 
+ 
+How to implement it?
+Example with a contact form:
+
+  # Gemfile
+  gem 'non_persistent_model'
+
+  # /app/models/contact_form.rb
+  class ContactForm < NonPersistentModel::NonPersistentModel
+    
+    attr_accessor :email, :body
+  
+    validates_presence_of :email, :body
+  
+  end
+
+  # /app/views/contact_form/contact_form.html.erb
+  
+  <% @contact = ContactForm.new(:email => 'erik@visrez.com') # this should better go in the controller %>
+  
+  <%= form_for @contact, :url => dev_path do |f| %>
+   <%= f.text_field :email  %>
+   <%= f.text_field :body   %>
+   <%= f.submit   %>
+  <% end %> 
+
+
+
+
+
+
+
