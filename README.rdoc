@@ -1,3 +1,8 @@
+* Working: Yes
+* Interesting: No
+* Progress: Complete
+* Purpose: Experiment
+
 Provides a class NonPersistend that you can extend to create your non persistent model, which you can use exactly like an activerecord model beside the fact that the record will not be stored in the db. 
  
 How to implement it?
